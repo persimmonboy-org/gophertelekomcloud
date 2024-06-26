@@ -13,22 +13,10 @@ on:
   status: {}
 
 jobs:
-  acc_test:
-    runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'gate')
-    steps:
-      - name: Run synthetic acceptance test
-        run: |
-          echo "Starting synthetic acceptance test..."
-          sleep 15
-          echo "Synthetic acceptance test completed successfully."
-
   automerge:
-    needs: acc_test
     runs-on: ubuntu-latest
     if: >
-      contains(github.event.pull_request.labels.*.name, 'gate') &&
-      needs.acc_test.result == 'success'
+      contains(github.event.pull_request.labels.*.name, 'gate')
     steps:
       - name: Create GitHub App Token
         id: app-token
