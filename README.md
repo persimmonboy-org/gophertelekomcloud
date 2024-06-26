@@ -110,6 +110,3 @@ If you're struggling with something or have spotted a potential bug, feel free t
 our [bug tracker](https://github.com/opentelekomcloud/gophertelekomcloud/issues).
 
 ## Test automerge
-
-
-## Test automerge-2
