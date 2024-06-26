@@ -111,5 +111,3 @@ our [bug tracker](https://github.com/opentelekomcloud/gophertelekomcloud/issues)
 
 ## Test automerge
 
-
-## Test automerge-2
