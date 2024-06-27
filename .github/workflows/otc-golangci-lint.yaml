@@ -44,7 +44,7 @@ jobs:
           go-version: "${{ env.GO_VERSION }}"
       - run: |
           echo "Starting synthetic acceptance test..."
-          sleep 150
+          sleep 15
           echo "Synthetic acceptance test completed successfully."
           exit 1  # Добавление команды выхода с ошибкой
 
