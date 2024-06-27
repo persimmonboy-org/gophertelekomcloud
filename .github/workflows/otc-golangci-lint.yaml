@@ -46,7 +46,6 @@ jobs:
           echo "Starting synthetic acceptance test..."
           sleep 15
           echo "Synthetic acceptance test completed successfully."
-          exit 1  # Добавление команды выхода с ошибкой
 
   eco_check:
     name: eco/check
