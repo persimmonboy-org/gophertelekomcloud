@@ -37,6 +37,7 @@ jobs:
   acc_test:
     name: run acc test
     runs-on: arc-runner-set
+    container: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
