@@ -51,7 +51,7 @@ jobs:
     name: eco/check
     if: always()
     needs: [lint, vet, acc_test]
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
     steps:
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@release/v1
