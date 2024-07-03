@@ -22,6 +22,7 @@ on:
 jobs:
   automerge:
     runs-on: arc-runner-set
+    container: ubuntu:jammy
     if: >
       contains(github.event.pull_request.labels.*.name, 'gate')
     steps:
