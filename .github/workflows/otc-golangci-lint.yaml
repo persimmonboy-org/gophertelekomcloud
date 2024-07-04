@@ -23,7 +23,6 @@ jobs:
           uname -a
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
-            exit 1
           else
             echo "sudo is available."
           fi
@@ -48,7 +47,6 @@ jobs:
           uname -a
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
-            exit 1
           else
             echo "sudo is available."
           fi
@@ -70,7 +68,6 @@ jobs:
           uname -a
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
-            exit 1
           else
             echo "sudo is available."
           fi
@@ -97,7 +94,6 @@ jobs:
           uname -a
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
-            exit 1
           else
             echo "sudo is available."
           fi
