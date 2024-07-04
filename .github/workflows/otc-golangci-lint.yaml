@@ -26,6 +26,7 @@ jobs:
           id
           capsh --print
           mount
+          ls -la
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
