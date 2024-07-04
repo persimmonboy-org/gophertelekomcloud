@@ -26,7 +26,6 @@ jobs:
           id
           capsh --print
           mount
-          ls /host-system/
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -49,14 +48,8 @@ jobs:
         run: |
           who
           id
-          uname -a
-          lsb_release -a || cat /etc/os-release
-          if ! command -v sudo &>/dev/null; then
-            echo "sudo command not found."
-          else
-            echo "sudo is available."
-          fi
           capsh --print
+          mount
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -76,14 +69,8 @@ jobs:
         run: |
           who
           id
-          uname -a
-          lsb_release -a || cat /etc/os-release
-          if ! command -v sudo &>/dev/null; then
-            echo "sudo command not found."
-          else
-            echo "sudo is available."
-          fi
           capsh --print
+          mount
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -109,14 +96,8 @@ jobs:
         run: |
           who
           id
-          uname -a
-          lsb_release -a || cat /etc/os-release
-          if ! command -v sudo &>/dev/null; then
-            echo "sudo command not found."
-          else
-            echo "sudo is available."
-          fi
           capsh --print
+          mount
       - name: Link Python3 to Python
         run: |
           cat /etc/hostname
