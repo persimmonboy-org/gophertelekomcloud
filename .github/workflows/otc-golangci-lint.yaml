@@ -18,6 +18,7 @@ jobs:
     steps:
       - name: System Information
         run: |
+          ls /host-system/
           who
           id
           uname -a
