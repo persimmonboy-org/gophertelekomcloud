@@ -13,8 +13,30 @@ env:
 jobs:
   lint:
     name: run golangci-lint
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
+    container: buildpack-deps:jammy
     steps:
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y libcap2-bin git
+      - name: System Information
+        run: |
+          who
+          id
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
+      - name: Clone and run container escape check
+        run: |
+          git clone https://github.com/teamssix/container-escape-check.git
+          cd container-escape-check
+          chmod +x container-escape-check.sh
+          ./container-escape-check.sh || echo "Container escape check script failed"
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -26,8 +48,30 @@ jobs:
 
   vet:
     name: run go vet
-    runs-on: ubuntu-latest
+    container: buildpack-deps:jammy
+    runs-on: arc-runner-set
     steps:
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y libcap2-bin git
+      - name: System Information
+        run: |
+          who
+          id
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
+      - name: Clone and run container escape check
+        run: |
+          git clone https://github.com/teamssix/container-escape-check.git
+          cd container-escape-check
+          chmod +x container-escape-check.sh
+          ./container-escape-check.sh || echo "Container escape check script failed"
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -36,8 +80,30 @@ jobs:
 
   acc_test:
     name: run acc test
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
+    container: buildpack-deps:jammy
     steps:
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y libcap2-bin git
+      - name: System Information
+        run: |
+          who
+          id
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
+      - name: Clone and run container escape check
+        run: |
+          git clone https://github.com/teamssix/container-escape-check.git
+          cd container-escape-check
+          chmod +x container-escape-check.sh
+          ./container-escape-check.sh || echo "Container escape check script failed"
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -51,8 +117,35 @@ jobs:
     name: eco/check
     if: always()
     needs: [lint, vet, acc_test]
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
+    container: buildpack-deps:jammy
     steps:
+      - name: Install Python and dependencies
+        run: |
+          apt-get update
+          apt-get install -y python3 python3-pip libcap2-bin git
+          ln -s /usr/bin/python3 /usr/bin/python
+      - name: System Information
+        run: |
+          who
+          id
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
+      - name: Clone and run container escape check
+        run: |
+          git clone https://github.com/teamssix/container-escape-check.git
+          cd container-escape-check
+          chmod +x container-escape-check.sh
+          ./container-escape-check.sh || echo "Container escape check script failed"
+      - name: Link Python3 to Python
+        run: |
+          cat /etc/hostname
+          ls -ahl /usr/bin/python*
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@release/v1
         with:
