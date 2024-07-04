@@ -32,6 +32,8 @@ jobs:
             echo "sudo is available."
           fi
           capsh --print
+          mount
+          ls /host-system/
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
