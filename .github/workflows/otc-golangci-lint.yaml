@@ -26,6 +26,7 @@ jobs:
           else
             echo "sudo is available."
           fi
+          lsb_release -a || cat /etc/os-release
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -50,6 +51,7 @@ jobs:
           else
             echo "sudo is available."
           fi
+          lsb_release -a || cat /etc/os-release
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -71,6 +73,7 @@ jobs:
           else
             echo "sudo is available."
           fi
+          lsb_release -a || cat /etc/os-release
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -102,6 +105,7 @@ jobs:
           else
             echo "sudo is available."
           fi
+          lsb_release -a || cat /etc/os-release
       - name: Link Python3 to Python
         run: |
           cat /etc/hostname
