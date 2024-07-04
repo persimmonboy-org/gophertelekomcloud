@@ -61,6 +61,7 @@ jobs:
   acc_test:
     name: run acc test
     runs-on: arc-runner-set
+    container: buildpack-deps:jammy
     steps:
       - name: Install capsh
         run: |
@@ -72,7 +73,6 @@ jobs:
           id
           capsh --print
           mount
-          ls -la /host-system
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
