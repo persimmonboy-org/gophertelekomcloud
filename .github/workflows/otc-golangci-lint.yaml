@@ -97,9 +97,6 @@ jobs:
           else
             echo "sudo is available."
           fi
-      - name: Link Python3 to Python
-        run: |
-          ls -ahl /usr/bin/python*
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@release/v1
         with:
