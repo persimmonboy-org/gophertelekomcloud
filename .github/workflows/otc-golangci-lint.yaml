@@ -21,11 +21,6 @@ jobs:
           who
           id
           uname -a
-          if command -v lsb_release &>/dev/null; then
-            lsb_release -a
-          else
-            echo "lsb_release is not installed."
-          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
@@ -51,11 +46,6 @@ jobs:
           who
           id
           uname -a
-          if command -v lsb_release &>/dev/null; then
-            lsb_release -a
-          else
-            echo "lsb_release is not installed."
-          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
@@ -78,11 +68,6 @@ jobs:
           who
           id
           uname -a
-          if command -v lsb_release &>/dev/null; then
-            lsb_release -a
-          else
-            echo "lsb_release is not installed."
-          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
@@ -110,11 +95,6 @@ jobs:
           who
           id
           uname -a
-          if command -v lsb_release &>/dev/null; then
-            lsb_release -a
-          else
-            echo "lsb_release is not installed."
-          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
