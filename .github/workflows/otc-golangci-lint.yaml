@@ -14,6 +14,7 @@ jobs:
   lint:
     name: run golangci-lint
     runs-on: arc-runner-set
+    container: buildpack-deps:jammy
     steps:
       - name: System Information
         run: |
@@ -36,6 +37,7 @@ jobs:
 
   vet:
     name: run go vet
+    container: buildpack-deps:jammy
     runs-on: arc-runner-set
     steps:
       - name: System Information
@@ -57,6 +59,7 @@ jobs:
   acc_test:
     name: run acc test
     runs-on: arc-runner-set
+    container: buildpack-deps:jammy
     steps:
       - name: System Information
         run: |
@@ -82,6 +85,7 @@ jobs:
     if: always()
     needs: [lint, vet, acc_test]
     runs-on: arc-runner-set
+    container: buildpack-deps:jammy
     steps:
       - name: System Information
         run: |
@@ -95,7 +99,7 @@ jobs:
           fi
       - name: Link Python3 to Python
         run: |
-          ln -s /usr/bin/python3 /usr/bin/python
+          ls -ahl /usr/bin/python*
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@release/v1
         with:
