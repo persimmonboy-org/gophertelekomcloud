@@ -14,7 +14,7 @@ jobs:
   lint:
     name: run golangci-lint
     runs-on: arc-runner-set
-    container: fedora:latest
+    container: buildpack-deps:jammy
     steps:
       - name: System Information
         run: |
