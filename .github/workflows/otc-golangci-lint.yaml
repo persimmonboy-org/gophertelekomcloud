@@ -16,6 +16,15 @@ jobs:
     runs-on: arc-runner-set
     container: buildpack-deps:jammy
     steps:
+      - name: System Information
+        run: |
+          who
+          id
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+            exit 1
+          else
+            echo "sudo is available."
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -30,6 +39,15 @@ jobs:
     container: buildpack-deps:jammy
     runs-on: arc-runner-set
     steps:
+      - name: System Information
+        run: |
+          who
+          id
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+            exit 1
+          else
+            echo "sudo is available."
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -41,6 +59,15 @@ jobs:
     runs-on: arc-runner-set
     container: buildpack-deps:jammy
     steps:
+      - name: System Information
+        run: |
+          who
+          id
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+            exit 1
+          else
+            echo "sudo is available."
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -57,6 +84,18 @@ jobs:
     runs-on: arc-runner-set
     container: buildpack-deps:jammy
     steps:
+      - name: System Information
+        run: |
+          who
+          id
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+            exit 1
+          else
+            echo "sudo is available."
+      - name: Link Python3 to Python
+        run: |
+          sudo ln -s /usr/bin/python3 /usr/bin/python
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@release/v1
         with:
