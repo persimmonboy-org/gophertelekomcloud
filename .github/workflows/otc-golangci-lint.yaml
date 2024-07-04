@@ -85,7 +85,7 @@ jobs:
     if: always()
     needs: [lint, vet, acc_test]
     runs-on: arc-runner-set
-    container: ubuntu:latest
+    container: ubuntu:22.04
     steps:
       - name: System Information
         run: |
