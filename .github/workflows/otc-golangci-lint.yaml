@@ -20,11 +20,18 @@ jobs:
         run: |
           who
           id
+          uname -a
+          if command -v lsb_release &>/dev/null; then
+            lsb_release -a
+          else
+            echo "lsb_release is not installed."
+          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
           else
             echo "sudo is available."
+          fi
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -43,11 +50,18 @@ jobs:
         run: |
           who
           id
+          uname -a
+          if command -v lsb_release &>/dev/null; then
+            lsb_release -a
+          else
+            echo "lsb_release is not installed."
+          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
           else
             echo "sudo is available."
+          fi
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -63,11 +77,18 @@ jobs:
         run: |
           who
           id
+          uname -a
+          if command -v lsb_release &>/dev/null; then
+            lsb_release -a
+          else
+            echo "lsb_release is not installed."
+          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
           else
             echo "sudo is available."
+          fi
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -88,11 +109,18 @@ jobs:
         run: |
           who
           id
+          uname -a
+          if command -v lsb_release &>/dev/null; then
+            lsb_release -a
+          else
+            echo "lsb_release is not installed."
+          fi
           if ! command -v sudo &>/dev/null; then
             echo "sudo command not found."
             exit 1
           else
             echo "sudo is available."
+          fi
       - name: Link Python3 to Python
         run: |
           sudo ln -s /usr/bin/python3 /usr/bin/python
