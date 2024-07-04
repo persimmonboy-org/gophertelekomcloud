@@ -61,7 +61,6 @@ jobs:
   acc_test:
     name: run acc test
     runs-on: arc-runner-set
-    container: buildpack-deps:jammy
     steps:
       - name: System Information
         run: |
