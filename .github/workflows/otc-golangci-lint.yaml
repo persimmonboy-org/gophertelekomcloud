@@ -16,17 +16,17 @@ jobs:
     runs-on: arc-runner-set
     container: buildpack-deps:jammy
     steps:
-      - name: Install capsh
-        run: |
-          apt-get update
-          apt-get install -y libcap2-bin
       - name: System Information
         run: |
           who
           id
-          capsh --print
-          mount
-          ls -la /
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -41,17 +41,17 @@ jobs:
     container: buildpack-deps:jammy
     runs-on: arc-runner-set
     steps:
-      - name: Install capsh
-        run: |
-          apt-get update
-          apt-get install -y libcap2-bin
       - name: System Information
         run: |
           who
           id
-          capsh --print
-          mount
-          ls -la /host-system
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -63,16 +63,17 @@ jobs:
     runs-on: arc-runner-set
     container: buildpack-deps:jammy
     steps:
-      - name: Install capsh
-        run: |
-          apt-get update
-          apt-get install -y libcap2-bin
       - name: System Information
         run: |
           who
           id
-          capsh --print
-          mount
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
@@ -89,17 +90,22 @@ jobs:
     runs-on: arc-runner-set
     container: buildpack-deps:jammy
     steps:
-      - name: Install Python and capsh
+      - name: Install Python
         run: |
           apt-get update
-          apt-get install -y python3 python3-pip libcap2-bin
+          apt-get install -y python3 python3-pip
           ln -s /usr/bin/python3 /usr/bin/python
       - name: System Information
         run: |
           who
           id
-          capsh --print
-          mount
+          uname -a
+          if ! command -v sudo &>/dev/null; then
+            echo "sudo command not found."
+          else
+            echo "sudo is available."
+          fi
+          lsb_release -a || cat /etc/os-release
       - name: Link Python3 to Python
         run: |
           cat /etc/hostname
