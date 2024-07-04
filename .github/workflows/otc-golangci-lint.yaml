@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: System Information
         run: |
+          capsh --print
+          mount
           ls /host-system/
           who
           id
