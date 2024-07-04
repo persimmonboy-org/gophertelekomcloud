@@ -24,13 +24,6 @@ jobs:
         run: |
           who
           id
-          uname -a
-          lsb_release -a || cat /etc/os-release
-          if ! command -v sudo &>/dev/null; then
-            echo "sudo command not found."
-          else
-            echo "sudo is available."
-          fi
           capsh --print
           mount
           ls /host-system/
